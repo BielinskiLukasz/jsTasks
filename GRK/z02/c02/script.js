@@ -30,9 +30,6 @@ function setup() {
             v = (cmax + cmin) / 2;
             img_v.set(x, y, 255 * v);
 
-            // img_h.pixels[pos] = h
-            // img_s.pixels[pos + 1] = s
-            // img_v.pixels[pos + 2] = v
             img_h.pixels[pos + 3] = 255;
             img_s.pixels[pos + 3] = 255;
             img_v.pixels[pos + 3] = 255;
