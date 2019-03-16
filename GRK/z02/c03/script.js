@@ -34,6 +34,18 @@ function setup() {
             s = c / (1 - Math.abs(2 * l - 1));
             img_s.set(x, y, 255 * s);
 
+            if (c == 0)
+                h = 0;
+            else if (v == r)
+                h = ((g - b) / c) % 6;
+            else if (v == g)
+                h = ((b - r) / c) + 2;
+            else /*v==b*/
+                h = ((r - g) / c) + 4;
+            h /= 6;
+            if (h < 0) h += 1;
+            img_h.set(x, y, 255 * h);
+
             img_h.pixels[pos + 3] = 255;
             img_s.pixels[pos + 3] = 255;
             img_v.pixels[pos + 3] = 255;
