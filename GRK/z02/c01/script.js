@@ -7,37 +7,37 @@ function setup() {
     createCanvas(512, 512);
     img.resize(256, 256);
 
-    img_r1 = createImage(256, 256);
-    img_r2 = createImage(256, 256);
-    img_r3 = createImage(256, 256);
+    img_r = createImage(256, 256);
+    img_g = createImage(256, 256);
+    img_b = createImage(256, 256);
 
     img.loadPixels();
-    img_r1.loadPixels();
-    img_r2.loadPixels();
-    img_r3.loadPixels();
+    img_r.loadPixels();
+    img_g.loadPixels();
+    img_b.loadPixels();
 
     for (x = 0; x < img.width; x++) {
         for (y = 0; y < img.height; y++) {
             pos = 4 * (y * img.width + x);
-            img_r1.pixels[pos] = img.pixels[pos]; //to jest wartość dla R
-            img_r2.pixels[pos + 1] = img.pixels[pos + 1]; //to jest wartość dla G
-            img_r3.pixels[pos + 2] = img.pixels[pos + 2]; //to jest wartość dla B
-            img_r1.pixels[pos + 3] = 255;
-            img_r2.pixels[pos + 3] = 255;
-            img_r3.pixels[pos + 3] = 255;
+            img_r.pixels[pos] = img.pixels[pos]; //to jest wartość dla R
+            img_g.pixels[pos + 1] = img.pixels[pos + 1]; //to jest wartość dla G
+            img_b.pixels[pos + 2] = img.pixels[pos + 2]; //to jest wartość dla B
+            img_r.pixels[pos + 3] = 255;
+            img_g.pixels[pos + 3] = 255;
+            img_b.pixels[pos + 3] = 255;
         }
     }
 
-    img_r1.updatePixels();
-    img_r2.updatePixels();
-    img_r3.updatePixels();
+    img_r.updatePixels();
+    img_g.updatePixels();
+    img_b.updatePixels();
 
-    img_sum.blend(img_r1, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
-    img_sum.blend(img_r2, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
-    img_sum.blend(img_r3, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
+    img_sum.blend(img_r, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
+    img_sum.blend(img_g, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
+    img_sum.blend(img_b, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
 
-    image(img_r1, 0, 0);
-    image(img_r2, 256, 0);
-    image(img_r3, 0, 256);
+    image(img_r, 0, 0);
+    image(img_g, 256, 0);
+    image(img_b, 0, 256);
     image(img_sum, 256, 256);
 }
