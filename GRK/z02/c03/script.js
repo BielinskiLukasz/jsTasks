@@ -27,8 +27,12 @@ function setup() {
             cmin = Math.min(r, g, b);
 
             v = cmax;
-            v = (cmax + cmin) / 2;
+            l = (cmax + cmin) / 2;
             img_v.set(x, y, 255 * v);
+
+            c = cmax - cmin;
+            s = c / (1 - Math.abs(2 * l - 1));
+            img_s.set(x, y, 255 * s);
 
             img_h.pixels[pos + 3] = 255;
             img_s.pixels[pos + 3] = 255;
