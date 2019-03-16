@@ -1,5 +1,6 @@
 function preload() {
     img = loadImage("https://raw.githubusercontent.com/scikit-image/scikit-image/master/skimage/data/astronaut.png");
+    img_sum = createImage(256, 256);
 }
 
 function setup() {
@@ -31,10 +32,12 @@ function setup() {
     img_r2.updatePixels();
     img_r3.updatePixels();
 
-    img.updatePixels();
+    img_sum.blend(img_r1, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
+    img_sum.blend(img_r2, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
+    img_sum.blend(img_r3, 0, 0, 256, 256, 0, 0, 256, 256, ADD);
 
     image(img_r1, 0, 0);
     image(img_r2, 256, 0);
     image(img_r3, 0, 256);
-    image(img, 256, 256);
+    image(img_sum, 256, 256);
 }
