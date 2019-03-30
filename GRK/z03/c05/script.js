@@ -42,32 +42,24 @@ function flood_fill(x, y) {
     stos = [];
     stos.push([x, y]);
 
-    console.log('stos length before: ' + stos.length);
-    console.log(stos);
-
-    save_me = 10000;
+    save_me = 20000;
     while (stos.length > 0 && save_me > 0) {
-        [x1, y1] = stos.pop();
-        if (x1 > 512 || y1 > 512) continue;
+        [x, y] = stos.pop();
+        if (x > 512 || x < 0 || y > 512 || y < 0) continue;
 
-        pixel_color = get_pixel(x1, y1);
-        console.log('color before: ' + pixel_color);
+        pixel_color = get_pixel(x, y);
         if (pixel_color !== 255) continue;
 
-        set_pixel(x1, y1, 200);
-        stos.push([x1, y1 + 1]);
-        stos.push([x1, y1 - 1]);
-        stos.push([x1 + 1, y1]);
-        stos.push([x1 - 1, y1]);
+        set_pixel(x, y, 200);
+        stos.push([x, y + 1]);
+        stos.push([x, y - 1]);
+        stos.push([x + 1, y]);
+        stos.push([x - 1, y]);
 
         updatePixels();
-        console.log('color after: ' + pixel_color);
-
-        console.log('stos length after: ' + stos.length);
-        console.log(stos);
 
         save_me--;
-        console.log('save me please: ' + stos.length);
+        console.log('save me please: ' + save_me);
     }
 
 }
