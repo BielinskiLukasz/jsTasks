@@ -38,7 +38,7 @@ function makeVector(x, y) {
 }
 
 function drawVector(img, vec) {
-    img.set(vec[0], vec[1], 200);
+    img.set(vec[0], vec[1], 0);
     img.updatePixels();
 }
 
