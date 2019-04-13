@@ -1,7 +1,13 @@
 var imgA;
 var imgB;
 var transformationMatrix = makeIdentityMatrix();
-showActualTransformationMatrix();
+// showActualTransformationMatrix();
+let inputTranslateX, inputTranslateY, buttonTranslate,
+    inputScaleX, inputScaleY, buttonScale,
+    inputRotateAngle, buttonRotete,
+    inputShearX, inputShearY, buttonShear,
+    inputParameter, inputParameterIndex, buttonParameter,
+    buttonReset, matrixLabel;
 
 function setup() {
     createCanvas(512, 512);
@@ -23,6 +29,123 @@ function setup() {
     }
     imgA.updatePixels();
     imgB.updatePixels();
+
+    function createTranslateUI() {
+        inputTranslateX = createInput();
+        inputTranslateX.size(50, 15);
+        inputTranslateX.position(530, 25);
+
+        inputTranslateY = createInput();
+        inputTranslateY.size(50, 15);
+        inputTranslateY.position(inputTranslateX.x + inputTranslateX.width + 5, inputTranslateX.y);
+
+        buttonTranslate = createButton('translate');
+        buttonTranslate.size(100, 21);
+        buttonTranslate.position(inputTranslateY.x + inputTranslateY.width + 5, inputTranslateX.y);
+        buttonTranslate.mousePressed(translateAction);
+    }
+
+    createTranslateUI();
+
+    function createScaleUI() {
+        inputScaleX = createInput();
+        inputScaleX.size(50, 15);
+        inputScaleX.position(inputTranslateX.x, inputTranslateX.y + 25);
+
+        inputScaleY = createInput();
+        inputScaleY.size(50, 15);
+        inputScaleY.position(inputScaleX.x + inputScaleX.width + 5, inputScaleX.y);
+
+        buttonScale = createButton('scale');
+        buttonScale.size(100, 21);
+        buttonScale.position(inputScaleY.x + inputScaleY.width + 5, inputScaleX.y);
+        buttonScale.mousePressed(scaleAction);
+    }
+
+    createScaleUI();
+
+    function createRotateUI() {
+        inputRotateAngle = createInput();
+        inputRotateAngle.size(110, 15);
+        inputRotateAngle.position(inputTranslateX.x, inputScaleX.y + 25);
+
+        buttonRotete = createButton('rotate');
+        buttonRotete.size(100, 21);
+        buttonRotete.position(inputRotateAngle.x + inputRotateAngle.width + 5, inputRotateAngle.y);
+        buttonRotete.mousePressed(rotateAction);
+    }
+
+    createRotateUI();
+
+    function createShearUI() {
+        inputShearX = createInput();
+        inputShearX.size(50, 15);
+        inputShearX.position(inputTranslateX.x, inputRotateAngle.y + 25);
+
+        inputShearY = createInput();
+        inputShearY.size(50, 15);
+        inputShearY.position(inputShearX.x + inputShearX.width + 5, inputShearX.y);
+
+        buttonShear = createButton('shear');
+        buttonShear.size(100, 21);
+        buttonShear.position(inputShearY.x + inputShearY.width + 5, inputShearX.y);
+        buttonShear.mousePressed(shearAction);
+    }
+
+    createShearUI();
+
+    function createSetParemeterUI() {
+        inputParameter = createInput();
+        inputParameter.size(50, 15);
+        inputParameter.position(inputTranslateX.x, inputShearX.y + 25);
+
+        inputParameterIndex = createInput();
+        inputParameterIndex.size(50, 15);
+        inputParameterIndex.position(inputParameter.x + inputParameter.width + 5, inputParameter.y);
+
+        buttonParameter = createButton('set');
+        buttonParameter.size(100, 21);
+        buttonParameter.position(inputParameterIndex.x + inputParameterIndex.width + 5, inputParameter.y);
+        buttonParameter.mousePressed(setParameterAction);
+    }
+
+    createSetParemeterUI();
+
+    matrixLabel = createElement('h3', transformationMatrix);
+    matrixLabel.position(25, 525);
+
+    buttonReset = createButton('reset');
+    buttonReset.position(matrixLabel.x, matrixLabel.y + 50);
+    buttonReset.mousePressed(grkResetTransformationMatrix);
+}
+
+function translateAction() {
+    grkTranslateTransformationMatrix(inputTranslateX.value(), inputTranslateY.value());
+    inputTranslateX.value('');
+    inputTranslateY.value('');
+}
+
+function scaleAction() {
+    grkScaleTransformationMatrix(inputScaleX.value(), inputScaleY.value());
+    inputScaleX.value('');
+    inputScaleY.value('');
+}
+
+function rotateAction() {
+    grkRotateTransformationMatrix(inputRotateAngle.value());
+    inputRotateAngle.value('');
+}
+
+function shearAction() {
+    grkShearTransformationMatrix(inputShearX.value(), inputShearY.value());
+    inputShearX.value('');
+    inputShearY.value('');
+}
+
+function setParameterAction() {
+    grkSetTransformMatrixParameter(inputParameter.value(), inputParameterIndex.value());
+    inputParameter.value('');
+    inputParameterIndex.value('');
 }
 
 function draw() {
@@ -40,7 +163,7 @@ function makeVector(x, y) {
 }
 
 function drawVector(img, vec) {
-    img.set(vec[0], vec[1], 200);
+    img.set(vec[0], vec[1], 0);
     img.updatePixels();
 }
 
@@ -123,12 +246,13 @@ function grkSetTransformMatrix(matrix) {
     showActualTransformationMatrix();
 }
 
-function grkSetTransformMatrixParameter(parameter, i, j) {
-    transformationMatrix[i][j] = parameter;
+function grkSetTransformMatrixParameter(parameter, i) {
+    transformationMatrix[parseInt(i / 3)][parseInt(i % 3)] = parameter;
     showActualTransformationMatrix();
 }
 
 function showActualTransformationMatrix() {
     console.log("Actual transformation matrix is: ");
     console.log(transformationMatrix);
+    matrixLabel.html(transformationMatrix);
 }
