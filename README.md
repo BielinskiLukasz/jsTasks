@@ -1,4 +1,4 @@
-# JAVA
+# JAVASCRIPT
 ### Zagania programistyczne
 
 Zbiór pomniejszych zadań programistycznych realizowanych przy użyciu języja JavaScript, zgrupowane w ramach jednego repozytorium.
