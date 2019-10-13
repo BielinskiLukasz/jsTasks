@@ -51,27 +51,161 @@
       drugi z obrazków pozostanie niesformatowany.
       
  */
-      
+
 body {
-	background-color:#117EAE;
-	background-image:url("../obrazy/tlobg.gif");
-	background-repeat:repeat-x;
-	color:#555555;
-	font-family:Tahoma,Arial,Helvetica,sans-serif;
-	font-size:12px;
-	text-align:center;
-	padding: 0px;
+    background-color: #117EAE;
+    background-image: url("../obrazy/tlobg.gif");
+    background-repeat: repeat-x;
+    color: #555555;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    padding: 0px;
     margin: 0px;
 }
 
 p {
-	padding-bottom: 2em;
-	line-height:1.2em;
+    padding-bottom: 2em;
+    line-height: 1.2em;
 }
 
 h1 {
-	color:red;
+    color: red;
 }
 
 
 /* pod spodem dopisuj kolejne style.... Te ni¿ej maj¹ priorytet nad tymi powy¿ej. */
+
+#tresc {
+    background: url("../obrazy/white_wall.png");
+}
+
+#container {
+    margin: 0 auto;
+    text-align: left;
+    width: 930px;
+}
+
+#naglowek {
+    height: 65px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #f6f6f6;
+}
+
+#naglowek #logo {
+    float: left;
+    width: 240px;
+}
+
+#naglowek #links {
+    float: left;
+    width: 470px;
+}
+
+#naglowek #links ul li {
+    display: inline;
+}
+
+#naglowek #links ul li img {
+    margin: 0px 10px;
+}
+
+#naglowek #search {
+    float: right;
+    width: 200px;
+}
+
+#lewakolumna {
+    background-color: transparent;
+    float: left;
+    width: 240px;
+}
+
+#menu_container {
+    background-image: url("../obrazy/tlomenu.gif");
+    background-repeat: no-repeat;
+}
+
+#menu {
+    margin-left: 15px;
+    margin-right: 10px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu a {
+    background: url("../obrazy/strzalka.gif") no-repeat scroll 0 10px;
+    background-color: transparent;
+    border-bottom: 1px dotted #AAAAAA;
+    color: #4D4D4D;
+    display: block;
+    font-weight: bold;
+    padding: 5px 3px 5px 16px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    color: #117EAE;
+}
+
+.foto {
+    float: left;
+}
+
+#menu #podmenu a {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px dotted #AAAAAA;
+    color: #415866;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    padding-top: 2px;
+    font-weight: normal;
+}
+
+#prawakolumna {
+    float: right;
+    width: 690px;
+}
+
+#prawakolumna #crunch {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#prawakolumna #content {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 5px 20px 10px 10px;
+}
+
+#footer {
+    margin-top: 10px;
+    text-align: center;
+    padding: 8px;
+    background: url("../obrazy/white_wall.png");
+}
+
+#menu #active {
+    color: red;
+}
+
+#menu #podmenu #active {
+    color: red;
+}
+
+#menu #podmenu a:hover {
+    color: #117EAE;
+}
+
+#headertable {
+    margin-left: 20px;
+    width: 450px;
+}
+
+
