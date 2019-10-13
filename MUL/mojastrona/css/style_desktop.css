@@ -226,3 +226,6 @@ h1 {
     float: right;
 }
 
+a {
+    text-decoration: none;
+}
