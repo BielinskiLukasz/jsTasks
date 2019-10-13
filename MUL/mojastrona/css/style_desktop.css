@@ -96,6 +96,7 @@ h1 {
 #naglowek #logo {
     float: left;
     width: 240px;
+    margin-top:15px;
 }
 
 #naglowek #links {
@@ -114,6 +115,7 @@ h1 {
 #naglowek #search {
     float: right;
     width: 200px;
+    margin-top:15px;
 }
 
 #lewakolumna {
@@ -208,4 +210,19 @@ h1 {
     width: 450px;
 }
 
+#prawakolumna #crunch a {
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+.foto {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    background: white;
+    margin: 10px;
+}
+
+.on-right {
+    float: right;
+}
 
