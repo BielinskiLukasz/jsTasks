@@ -96,7 +96,7 @@ h1 {
 #naglowek #logo {
     float: left;
     width: 240px;
-    margin-top:15px;
+    margin-top: 15px;
 }
 
 #naglowek #links {
@@ -115,7 +115,7 @@ h1 {
 #naglowek #search {
     float: right;
     width: 200px;
-    margin-top:15px;
+    margin-top: 30px;
 }
 
 #lewakolumna {
