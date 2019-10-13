@@ -1,0 +1,77 @@
+/* 
+
+ Podstawowy opis sk³adni jêzyka CSS 
+
+ do znaczników np. <body> w stylach odwo³ujemy siê pisz¹c 
+	poprostu nazwê znacznika czyli np.: 
+	
+	body {
+		background-color:#117EAE;
+		font-size:12px;
+		text-align:center;
+	}
+	
+    do identyfikatorów takich jak np. <p id="jakasnazwa">tekst</p>
+    owo³ujemy siê pisz¹c # i nazwê identyfikatora np:
+	
+	#jakasnazwa {
+		margin:0 auto;
+		text-align:left;
+		width:930px;
+	}
+
+     do klas takich jak np. <p class="jakasnazwa">tekst</p>
+     owo³ujemy siê pisz¹c . i nazwê identyfikatora np:
+
+	.jakasnazwa {
+		margin:0 auto;
+		text-align:left;
+		width:930px;
+	}
+
+      nie ma ¿adnej ró¿nicy w dzia³aniu pomiêdzy id i class. parametr class powinno siê jednak 
+      stosowaæ gdy mamy na stronie wiele powtarzalnych elementów (np. miniatury w galerii) które 
+      powinny wygl¹daæ tak samo. Id jest identyfikatorem i dana nazwa powinna wyst¹piæ tylko raz 
+      w obrêbie danego dokumentu html.
+      
+      Dlaczego "KASKADOWE" arkusze styli? Poniewa¿ do danych elementów mo¿emy odwo³ywaæ siê niejako 
+      "kaskadowo". Np jeœli mamy taki fragment html:
+      
+	<p id="jakasnazwa">
+		<img class="obrazek" href="image.jpg />
+	</p>
+		<img class="obrazek" href="image.jpg />
+		
+      i chemy odwo³aæ siê TYLKO do obrazka znajduj¹cego siê w paragrafie o id="jakasnazwa" to napiszemy:
+      
+      #jakasnazwa .obrazek {
+           margin: 10px;
+      }
+      
+      drugi z obrazków pozostanie niesformatowany.
+      
+ */
+      
+body {
+	background-color:#117EAE;
+	background-image:url("../obrazy/tlobg.gif");
+	background-repeat:repeat-x;
+	color:#555555;
+	font-family:Tahoma,Arial,Helvetica,sans-serif;
+	font-size:12px;
+	text-align:center;
+	padding: 0px;
+    margin: 0px;
+}
+
+p {
+	padding-bottom: 2em;
+	line-height:1.2em;
+}
+
+h1 {
+	color:red;
+}
+
+
+/* pod spodem dopisuj kolejne style.... Te ni¿ej maj¹ priorytet nad tymi powy¿ej. */
